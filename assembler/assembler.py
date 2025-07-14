@@ -58,6 +58,8 @@ def assemble(file) -> list[int]:
 
                 for ref in labels[label][1]:
                     machine_code[ref] = pos
+            else:
+                labels[label] = [current_pos(), []]
         elif line[0] == "const":
             if len(line) != 3:
                 raise Exception("Expected constant declaration to have three tokens", line)
